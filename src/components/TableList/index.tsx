@@ -15,18 +15,17 @@ export function TableList ( {item, key, deleteTask}:TaskProps ) {
             <div className="ListTodo">
                     <div className="list">
                         <div className="checked">
-                            <input type="checkbox" />
+                            <input 
+                                type="checkbox"
+                                checked={true}  
+                            />
                         </div>
                         <div className="description">
                             <label htmlFor="item" key={key}>{item.nameTask}</label>
                         </div>
                         <div className="options">
                             <span onClick={() => deleteTask(item.id)}>
-                                <Trash size={25} style={{
-                                    // border: '1px solid white',
-                                    lineHeight: 0,
-                                    alignItems: "center"
-                                }} color="#f7f7f7" />                                
+                                <Trash size={25} color="#f7f7f7" />                                
                             </span>
                         </div>
                     </div>

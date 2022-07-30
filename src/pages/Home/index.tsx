@@ -1,6 +1,6 @@
 import { TableList } from "../../components/TableList";
 import { Check } from 'phosphor-react'
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { ITask } from "../../interfaces/ITask";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -16,8 +16,10 @@ export function Home () {
         if (task.length >= 3) {
             const idRandom = (num: number) => Math.floor(Math.random() * num)
             const newTask = { id: idRandom(1000000), nameTask: task }
+
             setTodoList([...todoList, newTask])
             setTask('')
+
             toast.success('Cadastrado com sucesso!')
         } else {
             toast.error('Verifique o campo')
@@ -28,7 +30,7 @@ export function Home () {
         setTodoList(todoList.filter(taskName => taskName.id !== deleteTaskById))
         toast.warning('Deletado com sucesso!')
     }
-    
+
     return (
         <ContainerHome>
             <>
@@ -56,11 +58,12 @@ export function Home () {
                 </div>
                 {todoList.map((item, key) => {
                     return (
-                    <TableList
-                    key={ key }
-                    item={ item }
-                    deleteTask={ deleteTask }
-                    />
+
+                        <TableList
+                            key={ key }
+                            item={ item }
+                            deleteTask={ deleteTask }
+                        />
                     )
                 })}
 

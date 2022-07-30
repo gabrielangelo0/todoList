@@ -35,6 +35,7 @@ export const ContainerHome = styled.form`
         border: 2px solid var(--white);
     }
     @media (max-width: 768px) {
+        margin-top: 2.56rem;
         .titleContainer {
             margin-bottom: 1.875rem;
             h1 {
@@ -43,6 +44,7 @@ export const ContainerHome = styled.form`
         }
         .InputArea {
             padding: 0 1rem;
+            margin-bottom: 1.125rem;
         }
     }
  `;
